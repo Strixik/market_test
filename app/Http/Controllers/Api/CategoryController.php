@@ -39,7 +39,6 @@ class CategoryController extends Controller
         $category = new Category();
         $category->fill($request->all())->save();
 
-
         return response()->json(['status' => 'success'], 200);
     }
 
@@ -113,7 +112,6 @@ class CategoryController extends Controller
         return response()->json([], 204);
     }
 
-
     public function addProductCategory(Request $request)
     {
         $category = Category::find($request->category_id);
@@ -124,7 +122,6 @@ class CategoryController extends Controller
 
         return response()->json('', 200);
     }
-
 
     public function deleteProductCategory(Request $request)
     {
