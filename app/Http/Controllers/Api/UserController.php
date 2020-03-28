@@ -25,7 +25,7 @@ class UserController extends Controller
             [
                 'status' => 'success',
                 'users' => $users,
-                'roles' => User::ROLES
+                'roles' => User::ROLES,
             ], 200);
     }
 
@@ -37,7 +37,6 @@ class UserController extends Controller
      */
     public function store(UserCreateForm $request)
     {
-
         $user = new User;
         $request->merge(['password' => Hash::make($request->password)]);
         $user->fill($request->all())->save();
@@ -55,19 +54,19 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        if(!empty($user)) {
+        if(! empty($user)) {
             return response()->json(
                 [
                     'status' => 'success',
-                    'user' => $user
+                    'user' => $user,
 
                 ], 200);
         }
+
         return response()->json(
             [
                 'status' => 'error',
             ], 404);
-
     }
 
     /**
@@ -89,7 +88,7 @@ class UserController extends Controller
         return response()->json(
             [
                 'status' => 'success',
-                'user' => $user
+                'user' => $user,
             ], 200);
     }
 
@@ -102,6 +101,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->delete();
+
         return response()->json([], 204);
 
     }
