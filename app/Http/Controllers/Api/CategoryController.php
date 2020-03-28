@@ -5,12 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Category\CreateCategory;
 use App\Http\Requests\Category\EditCategory;
-use App\Http\Requests\Product\CreateProductReplacement;
 use App\Models\Category;
-use App\Models\Product;
-use App\Models\Product\Replacement;
 use Illuminate\Http\Request;
-use App\Models\Category\Product as CategoryProduct;
 
 class CategoryController extends Controller
 {

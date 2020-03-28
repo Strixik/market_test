@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UserCreateForm;
 use App\Http\Requests\User\UserUpdateForm;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
@@ -20,6 +20,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
+
         return response()->json(
             [
                 'status' => 'success',
