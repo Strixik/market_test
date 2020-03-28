@@ -18,7 +18,6 @@ class AuthController extends Controller
             'password'  => 'required|min:3|confirmed',
         ]);
 
-
         if ($v->fails()) {
             return response()->json([
                 'status' => 'error',
