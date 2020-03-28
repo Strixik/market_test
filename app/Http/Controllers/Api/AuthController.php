@@ -1,10 +1,12 @@
 <?php
+
 namespace App\Http\Controllers\Api;
+
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
@@ -15,8 +17,9 @@ class AuthController extends Controller
             'email' => 'required|email|unique:users',
             'password'  => 'required|min:3|confirmed',
         ]);
-        if ($v->fails())
-        {
+
+
+        if ($v->fails()) {
             return response()->json([
                 'status' => 'error',
                 'errors' => $v->errors()
@@ -27,6 +30,7 @@ class AuthController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->save();
+
         return response()->json(['status' => 'success'], 200);
     }
     public function login(Request $request)
