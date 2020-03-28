@@ -54,7 +54,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        if(! empty($user)) {
+        if (! empty($user)) {
             return response()->json(
                 [
                     'status' => 'success',
@@ -80,7 +80,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        if (!empty($request->password)) {
+        if (! empty($request->password)) {
             $request->merge(['password' => Hash::make($request->password)]);
         }
         $user->fill($request->all())->save();
