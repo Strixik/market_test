@@ -37,9 +37,8 @@ class ProductController extends Controller
         $product = new Product();
         $product->fill($request->all())->save();
 
-
         return response()->json([
-            'status' => 'success'
+            'status' => 'success',
         ], 200);
     }
 
@@ -54,7 +53,7 @@ class ProductController extends Controller
         $product = Product::find($id);
         $products = Product::all();
 
-        if (!empty($product)) {
+        if (! empty($product)) {
             return response()->json(
                 [
                     'status' => 'success',
@@ -62,6 +61,7 @@ class ProductController extends Controller
                     'products' => $products,
                 ], 200);
         }
+
         return response()->json(
             [
                 'status' => 'error',
@@ -78,9 +78,10 @@ class ProductController extends Controller
     public function update(EditProduct $request, $id)
     {
         $product = Product::find($id);
-        if (!empty($product)) {
+        if (! empty($product)) {
             $product->fill($request->all())->save();
             $products = Product::all();
+
             return response()->json(
                 [
                     'status' => 'success',
@@ -93,8 +94,6 @@ class ProductController extends Controller
             [
                 'status' => 'error',
             ], 404);
-
-
     }
 
     /**
@@ -107,14 +106,16 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $product->delete();
+
         return response()->json([], 204);
     }
 
     public function search(Request $request)
     {
-        $search = Product::where('name', 'like', '%' . $request->keywords . '%')
+        $search = Product::where('name', 'like', '%'.$request->keywords.'%')
             ->limit(5)
             ->get();
+
         return response()->json($search, 200);
     }
 }
