@@ -56,7 +56,7 @@ class CategoryController extends Controller
         $categories = Category::getTree($categories, $id);
         $category->child = $categories;
 
-        if (!empty($category)) {
+        if (! empty($category)) {
             return response()->json(
                 [
                     'status' => 'success',
@@ -64,6 +64,7 @@ class CategoryController extends Controller
                     'category_child' => $categories,
                 ], 200);
         }
+
         return response()->json(
             [
                 'status' => 'error',
@@ -80,9 +81,10 @@ class CategoryController extends Controller
     public function update(EditCategory $request, $id)
     {
         $category = Category::find($id);
-        if (!empty($category)) {
+        if (! empty($category)) {
             $category->fill($request->all())->save();
             $categories = Category::all();
+
             return response()->json(
                 [
                     'status' => 'success',
@@ -95,8 +97,6 @@ class CategoryController extends Controller
             [
                 'status' => 'error',
             ], 404);
-
-
     }
 
     /**
@@ -109,6 +109,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
+
         return response()->json([], 204);
     }
 
@@ -117,7 +118,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($request->category_id);
 
-        if (!$category->products->contains($request->product_id)) {
+        if (! $category->products->contains($request->product_id)) {
             $category->products()->attach($request->product_id);
         }
 
@@ -129,6 +130,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($request->category_id);
         $category->products()->detach($request->product_id);
+
         return response()->json([], 204);
     }
 }
