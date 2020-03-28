@@ -42,9 +42,11 @@ class AuthController extends Controller
 
         return response()->json(['status' => 'error', 'errors' => 'Login or password wrong'], 401);
     }
+
     public function logout()
     {
         $this->guard()->logout();
+
         return response()->json([
             'status' => 'success',
             'msg' => 'Logged out Successfully.',
