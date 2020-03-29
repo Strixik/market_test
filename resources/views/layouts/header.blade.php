@@ -8,7 +8,7 @@
             @foreach($categories as $category)
                 <li class="dropdown-submenu">
                     <a class="test" tabindex="-1" href="#">{{$category->name}}<span class="caret"></span></a>
-                    @if(count($category->child))
+                    @if(is_array($category->child) && count($category->child))
                         @include('show_partial', ['categories' => $category->child])
                     @endif
                 </li>

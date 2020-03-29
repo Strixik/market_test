@@ -1,0 +1,10 @@
+- cp .env.example .env.
+- MIX_APP_URL=example - http://market.snb.net.ua/
+- composer install
+- php artisan key:generate
+- php artisan jwt:secret
+- npm install
+- npm run dev
+- php artisan migrate
+- php artisan db:seed
+- login: admin@test.com password: 123456
