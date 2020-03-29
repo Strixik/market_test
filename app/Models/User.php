@@ -1,9 +1,11 @@
 <?php
+
 namespace App\Models;
+
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+
 class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
@@ -19,7 +21,7 @@ class User extends Authenticatable implements JWTSubject
     const ROLES = [self::ROLE_USER => 'USER', self::ROLE_MANAGER => 'MANAGER', self::ROLE_ADMIN => 'ADMIN'];
 
     protected $fillable = [
-        'name', 'email', 'password', 'role'
+        'name', 'email', 'password', 'role',
     ];
     /**
      * The attributes that should be hidden for arrays.
