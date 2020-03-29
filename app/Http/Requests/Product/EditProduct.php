@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests\Product;
 
-use App\Models\Product;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class EditProduct extends FormRequest
 {
@@ -30,7 +28,7 @@ class EditProduct extends FormRequest
 
             'name' => 'required|string|min:3|max:50',
             'price' => 'required|integer',
-            'description' => 'nullable|string|min:3'
+            'description' => 'nullable|string|min:3',
         ];
     }
 }

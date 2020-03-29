@@ -29,7 +29,7 @@ class CreateCategory extends FormRequest
             'description' => 'nullable|string|min:1',
             'parent_id' => [
                 'integer',
-                'nullable'
+                'nullable',
             ]
         ];
     }

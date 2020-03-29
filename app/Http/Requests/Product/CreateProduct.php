@@ -3,8 +3,6 @@
 namespace App\Http\Requests\Product;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
-use App\Models\Product;
 
 class CreateProduct extends FormRequest
 {
@@ -28,7 +26,7 @@ class CreateProduct extends FormRequest
         return [
             'name' => 'required|string|min:3|max:50',
             'price' => 'required|integer',
-            'description' => 'nullable|string|min:3'
+            'description' => 'nullable|string|min:3',
         ];
     }
 }

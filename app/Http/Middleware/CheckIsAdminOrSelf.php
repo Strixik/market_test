@@ -2,9 +2,9 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\User;
 use Closure;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 
 class CheckIsAdminOrSelf
 {
@@ -18,13 +18,12 @@ class CheckIsAdminOrSelf
     public function handle($request, Closure $next)
     {
         $requestedUserId = $request->route()->parameter('id');
-        if(
+        if (
             Auth::user()->role === User::ROLE_ADMIN ||
             Auth::user()->id == $requestedUserId
         ) {
             return $next($request);
-        }
-        else {
+        } else {
             return response()->json(['error' => 'Unauthorized'], 403);
         }
     }

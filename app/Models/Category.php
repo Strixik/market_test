@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Product\Replacement;
 use App\Models\Traits\Tree;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,7 +11,7 @@ class Category extends Model
 
     protected $table = 'category';
     protected $fillable = [
-        'parent_id', 'name', 'description'
+        'parent_id', 'name', 'description',
     ];
 
     public function products()

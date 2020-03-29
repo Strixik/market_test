@@ -2,9 +2,9 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\User;
 use Closure;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 
 class CheckIsAdmin
 {
@@ -17,10 +17,9 @@ class CheckIsAdmin
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->role === User::ROLE_ADMIN ) {
+        if (Auth::user()->role === User::ROLE_ADMIN ) {
             return $next($request);
-        }
-        else {
+        } else {
             return response()->json(['error' => 'Unauthorized'], 403);
         }
     }

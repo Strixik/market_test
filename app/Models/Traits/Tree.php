@@ -1,15 +1,15 @@
 <?php
+
 namespace App\Models\Traits;
 
 use Illuminate\Support\Collection;
 
 trait Tree
 {
-
     /**
-     * Create tree array for items
+     * Create tree array for items.
      * @param Collection $items
-     * @param integer|null $id
+     * @param int|null $id
      * @return array
      */
     public static function getTree($items, $id = null)
@@ -27,14 +27,12 @@ trait Tree
         }
 
         return $tree;
-
-
     }
 
     /**
-     * Create  array ids items
+     * Create  array ids items.
      * @param Collection $items
-     * @param integer|null $id
+     * @param int|null $id
      * @return array
      */
     public static function getTreeIds($items, $id = null)
@@ -52,14 +50,13 @@ trait Tree
                 array_push($ids, $item['id']);
             }
         }
+
         return $ids;
-
-
     }
 
-    /** Delete tree and branch items
+    /** Delete tree and branch items.
      * @param Collection $items
-     * @param integer|null $id
+     * @param int|null $id
      */
     public static function deleteTree($items, $id = null)
     {
@@ -74,6 +71,5 @@ trait Tree
                 $item->delete();
             }
         }
-
     }
 }

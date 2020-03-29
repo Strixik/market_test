@@ -26,11 +26,12 @@ class EditCategory extends FormRequest
     public function rules()
     {
         $ids = Category::getTreeIds(Category::all(), $this->id);
+
         return [
             'name' => [
                 'required',
                 'string',
-                'max:255'
+                'max:255',
 
             ],
             'description' => 'nullable|string|min:3',
@@ -38,7 +39,7 @@ class EditCategory extends FormRequest
                 'integer',
                 'nullable',
                 'not_in:' . $this->id,
-                Rule::notIn($ids)
+                Rule::notIn($ids),
             ]
         ];
 
