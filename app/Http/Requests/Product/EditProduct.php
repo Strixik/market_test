@@ -23,7 +23,6 @@ class EditProduct extends FormRequest
      */
     public function rules()
     {
-
         return [
             'name' => 'required|string|min:3|max:50',
             'price' => 'required|integer',

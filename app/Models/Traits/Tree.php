@@ -71,6 +71,6 @@ trait Tree
                 $item->delete();
             }
         }
-
     }
+
 }

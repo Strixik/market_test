@@ -42,6 +42,5 @@ class EditCategory extends FormRequest
                 Rule::notIn($ids),
             ],
         ];
-
     }
 }
