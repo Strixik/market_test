@@ -1,6 +1,5 @@
 <?php
 
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -38,7 +37,6 @@ Route::prefix('src')->group(function () {
         Route::get('category/{id}', 'Api\CategoryController@show')->middleware('isAdmin');
         Route::put('category/{id}', 'Api\CategoryController@update')->middleware('isAdmin');
 
-
         Route::get('product/search', 'Api\ProductController@search')->middleware('isAdmin');
         Route::get('products', 'Api\ProductController@index')->middleware('isAdmin');
         Route::post('product/add', 'Api\ProductController@store')->middleware('isAdmin');
@@ -47,4 +45,3 @@ Route::prefix('src')->group(function () {
         Route::put('product/{id}', 'Api\ProductController@update')->middleware('isAdmin');
     });
 });
-
