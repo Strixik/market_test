@@ -18,4 +18,3 @@ Route::prefix('src')->group(function () {
         return view('app');
     })->where('any', '^(?!api\/)[\/\w\.-]*');
 });
-
