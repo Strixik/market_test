@@ -11,6 +11,7 @@ class IndexController extends Controller
     {
         $categories = Category::all();
         $categories = Category::getTree($categories);
+
         return view('index', compact('categories'));
     }
 
@@ -19,6 +20,7 @@ class IndexController extends Controller
         $products = $category->products;
         $categories = Category::all();
         $categories = Category::getTree($categories);
+
         return view('show', compact('products', 'categories', 'category'));
     }
 }

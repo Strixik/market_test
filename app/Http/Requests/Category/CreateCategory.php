@@ -30,7 +30,7 @@ class CreateCategory extends FormRequest
             'parent_id' => [
                 'integer',
                 'nullable',
-            ]
+            ],
         ];
     }
 }

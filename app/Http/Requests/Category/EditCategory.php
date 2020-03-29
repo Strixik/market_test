@@ -38,9 +38,9 @@ class EditCategory extends FormRequest
             'parent_id' => [
                 'integer',
                 'nullable',
-                'not_in:' . $this->id,
+                'not_in:'.$this->id,
                 Rule::notIn($ids),
-            ]
+            ],
         ];
 
     }

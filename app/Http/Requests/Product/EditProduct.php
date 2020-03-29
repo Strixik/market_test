@@ -25,7 +25,6 @@ class EditProduct extends FormRequest
     {
 
         return [
-
             'name' => 'required|string|min:3|max:50',
             'price' => 'required|integer',
             'description' => 'nullable|string|min:3',

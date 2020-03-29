@@ -11,6 +11,7 @@ class Authenticate extends Middleware
     {
         return $next($request);
     }
+
     protected function authenticate($request, array $guards)
     {
         if (empty($guards)) {

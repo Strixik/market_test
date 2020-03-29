@@ -25,5 +25,4 @@ class Category extends Model
 
         return parent::delete();
     }
-
 }
